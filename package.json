@@ -5,7 +5,8 @@
   "main": "index.js",
 "scripts": {
   "test": "mocha",
-  "start": "nodemon --env-file=.env app.js"
+  "start": "nodemon --env-file=.env app.js",
+  "mocha": "mocha"
 },
   "keywords": [],
   "author": "",
