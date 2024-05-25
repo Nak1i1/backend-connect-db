@@ -183,30 +183,4 @@
     }
   ],
   "__v": 0
-},
-{
-  "_id": {
-    "$oid": "664d0d0cd0d74a233f4a7c66"
-  },
-  "title": "Страшилка",
-  "description": "СТРАШШНААА",
-  "developer": "Пугач",
-  "image": "https://pic.rutubelist.ru/video/3f/a7/3fa71aa825359950b755ba41520e4954.jpg",
-  "link": "https://black-nerty-71.tiiny.site/",
-  "users": [],
-  "categories": [
-    {
-      "$oid": "65fd4ae18dfd769ce313327d"
-    },
-    {
-      "$oid": "65fd4ae88dfd769ce3133282"
-    },
-    {
-      "$oid": "65fd4ef6ee6f92e3d791d0d7"
-    },
-    {
-      "$oid": "660bc0a61755c9b3a8173553"
-    }
-  ],
-  "__v": 0
 }]
