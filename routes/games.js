@@ -1,40 +1,53 @@
-const gamesRouter = require('express').Router();
-const {
-	findAllGames,
-	checkIsGameExists,
-	checkIfCategoriesAvaliable,
-	findGameById,
-	createGame,
-	checkIfUsersAreSafe,
-	updateGame,
-	deleteGame,
-	checkEmptyFields,
-	checkIsVoteRequest,
-} = require('../middlewares/games.js')
-const { sendAllGames, sendGameCreated, sendGameUpdated, sendGameDeleted, sendGameById} = require('../controllers/games');
-const { checkAuth } = require("../middlewares/auth.js");
+const gamesRouter = require("express").Router();
 
-gamesRouter.get('/games', findAllGames, sendAllGames)
+const {
+  findAllGames,
+  createGame,
+  findGameById,
+  updateGame,
+  deleteGame,
+  checkEmptyFields,
+  checkIfUsersAreSafe,
+  checkIfCategoriesAvaliable,
+  checkIsGameExists,
+  checkIsVoteRequest,
+} = require("../middlewares/games");
+const {
+  sendAllGames,
+  sendGameCreated,
+  sendGameById,
+  sendGameUpdated,
+  sendGameDeleted,
+} = require("../controllers/games");
+const { checkAuth } = require("../middlewares/auth");
+
+gamesRouter.get("/games", findAllGames, sendAllGames);
+
 gamesRouter.post(
-	'/games',
-	findAllGames,
-	checkIsGameExists,
-	checkIfCategoriesAvaliable,
-	checkEmptyFields,
-	createGame,
-	sendGameCreated
-)
-gamesRouter.get('/games/:id', findGameById, sendGameById)
+  "/games",
+  findAllGames,
+  checkIsGameExists,
+  checkIfCategoriesAvaliable,
+  checkEmptyFields,
+  checkAuth,
+  createGame,
+  sendGameCreated
+);
+
+gamesRouter.get("/games/:id", findGameById, sendGameById);
+
 gamesRouter.put(
-	'/games/:id',
-	findGameById,
-	checkIsVoteRequest,
-	checkIfUsersAreSafe,
-	checkIfCategoriesAvaliable,
-	checkEmptyFields,
-	updateGame,
-	sendGameUpdated
-)
-gamesRouter.delete('/games/:id', checkAuth, deleteGame, sendGameDeleted)
+  "/games/:id",
+  findGameById,
+  checkIsVoteRequest,
+  checkIfUsersAreSafe,
+  checkIfCategoriesAvaliable,
+  checkEmptyFields,
+  checkAuth,
+  updateGame,
+  sendGameUpdated
+);
+
+gamesRouter.delete("/games/:id", checkAuth, deleteGame, sendGameDeleted);
 
 module.exports = gamesRouter;
