@@ -44,5 +44,5 @@ const sendIndex = (req, res) => {
 	res.sendFile(path.join(__dirname, '../public/index.html'))
 }
 
-// Не забываем экспортировать функцию
+//    Не забываем экспортировать функцию
 module.exports = { login, sendIndex, sendDashboard }
